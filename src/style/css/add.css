@@ -1,0 +1,52 @@
+html {
+  font-size: 20px;
+}
+
+.formContainer {
+  width: 100%;
+  border-bottom: 0.5px solid #DCDCDC;
+  padding: 1rem;
+}
+
+.formContainer .form {
+  width: 15rem;
+  margin: 0 auto;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  border-bottom: 0.5px solid #DCDCDC;
+}
+
+.listContainer .incomeList {
+  width: 50%;
+  padding: 1rem;
+  border-right: 0.5px solid #DCDCDC;
+}
+
+.listContainer .expendList {
+  width: 50%;
+  padding: 1rem;
+}
+
+.listItem {
+  padding: 0.5rem 0 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.listItem .buttonContainer {
+  display: none;
+}
+
+.listItem:hover .buttonContainer {
+  display: block;
+}
+
+.listItem span {
+  padding-right: 0.5rem;
+}
+/*# sourceMappingURL=add.css.map */

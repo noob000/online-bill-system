@@ -1,0 +1,38 @@
+html {
+  font-size: 20px;
+}
+
+.loginPart {
+  position: relative;
+  top: 5rem;
+  width: 35rem;
+  padding: 1rem;
+  margin: 0 auto;
+  border: 1px solid #DCDCDC;
+}
+
+.loginPart .titleContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.loginPart .titleContainer p {
+  color: #3578e5;
+  cursor: pointer;
+}
+
+.loginPart .loginContainer {
+  width: 30rem;
+  height: auto;
+  padding: 1rem;
+}
+
+.loginPart .registContainer {
+  width: 30rem;
+  height: auto;
+  padding: 1rem;
+}
+/*# sourceMappingURL=login.css.map */

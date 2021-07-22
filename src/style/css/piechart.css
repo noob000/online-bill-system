@@ -1,0 +1,14 @@
+html {
+  font-size: 20px;
+}
+
+.pieChartFlexContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.pieChartFlexContainer .pieChartContainer {
+  width: 35rem;
+  padding: 1rem 0 1rem 0;
+}
+/*# sourceMappingURL=piechart.css.map */

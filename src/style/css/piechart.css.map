@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACGA,AAAA,IAAI,CAAA;EACA,SAAS,EAAE,IAAI;CAClB;;ADJD,AAAA,sBAAsB,CAAA;EAClB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;CAKtB;;AAPD,AAGI,sBAHkB,CAGlB,kBAAkB,CAAA;EACd,KAAK,EAAC,KAAK;EACX,OAAO,EAAC,aAAa;CACxB",
+    "sources": [
+        "../scss/piechart.scss",
+        "../scss/basic.scss"
+    ],
+    "names": [],
+    "file": "piechart.css"
+}

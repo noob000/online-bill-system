@@ -1,0 +1,11 @@
+@import 'basic';
+.pieChartFlexContainer{
+    display: flex;
+    flex-direction: row;
+    .pieChartContainer{
+        width:35rem;
+        padding:1rem 0 1rem 0;
+    }
+}
+
+

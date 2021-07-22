@@ -1,0 +1,36 @@
+@import 'basic';
+
+.loginPart {
+    position: relative;
+    top:5rem;
+    width: 35rem;
+    padding: 1rem;
+    margin: 0 auto;
+    border: 1px solid $br-color;
+
+    .titleContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1rem;
+
+        p {
+            color: $font-hover-color;
+            cursor: pointer;
+        }
+    }
+
+    .loginContainer {
+        width: 30rem;
+        height: auto;
+        padding: 1rem;
+
+    }
+
+    .registContainer {
+        width: 30rem;
+        height: auto;
+        padding: 1rem;
+    }
+}
