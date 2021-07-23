@@ -1,0 +1,54 @@
+@import 'basic';
+.formContainer {
+    width: 100%;
+    border-bottom: 0.5px solid $br-color;
+    padding: 1rem;
+
+    .form {
+        width: 15rem;
+        margin: 0 auto;
+
+    }
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: row;
+    height:100%;
+    border-bottom:0.5px solid $br-color ;
+    .incomeList {
+        width: 50%;
+        padding: 1rem;
+        border-right: 0.5px solid $br-color;
+        
+    }
+
+    .expendList {
+        width: 50%;
+        padding: 1rem;
+    }
+
+
+}
+
+.listItem {
+    padding: 0.5rem 0 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .buttonContainer {
+        display: none;
+    }
+
+    &:hover {
+        .buttonContainer {
+            display: block;
+        }
+    }
+
+    span {
+        padding-right: 0.5rem;
+    }
+
+}

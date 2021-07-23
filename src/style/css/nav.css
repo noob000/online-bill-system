@@ -1,0 +1,43 @@
+html {
+  font-size: 20px;
+}
+
+.navContainer {
+  width: 10rem;
+  height: 100%;
+  padding-left: 0;
+  font-size: 1rem;
+}
+
+.navContainer ul {
+  list-style: none;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+}
+
+.navContainer ul .selectedLi {
+  color: #3578e5;
+}
+
+.navContainer ul li {
+  padding: 0.5rem 0 1rem 0.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  width: 8rem;
+  color: black;
+}
+
+.navContainer ul li:hover {
+  color: #3578e5;
+}
+
+.navContainer ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navContainer .logoutButton {
+  color: red;
+  cursor: pointer;
+  padding-left: 1rem;
+}
+/*# sourceMappingURL=nav.css.map */

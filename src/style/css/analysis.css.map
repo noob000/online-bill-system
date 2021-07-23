@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACGA,AAAA,IAAI,CAAA;EACA,SAAS,EAAE,IAAI;CAClB;;ADJD,AAAA,eAAe,CAAA;EACX,KAAK,EAAC,KAAK;CACd",
+    "sources": [
+        "../scss/analysis.scss",
+        "../scss/basic.scss"
+    ],
+    "names": [],
+    "file": "analysis.css"
+}

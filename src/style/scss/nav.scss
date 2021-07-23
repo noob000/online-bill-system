@@ -1,0 +1,41 @@
+@import "basic";
+
+.navContainer {
+    width: 10rem;
+    height: 100%;
+    padding-left: 0;
+    font-size: 1rem;
+
+    ul {
+        list-style: none;
+        padding: 0.5rem 1rem 0.5rem 0.5rem;
+
+        .selectedLi {
+            color: $font-hover-color;
+        }
+
+        li {
+            padding: 0.5rem 0 1rem 0.5rem;
+            height: 1rem;
+            line-height: 1rem;
+            width: 8rem;
+            color: black;
+
+            &:hover {
+                color: $font-hover-color
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+        }
+    }
+
+    .logoutButton {
+        color: red;
+        cursor: pointer;
+        padding-left:1rem;
+    }
+}

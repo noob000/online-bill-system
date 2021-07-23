@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACGA,AAAA,IAAI,CAAA;EACA,SAAS,EAAE,IAAI;CAClB;;ADJD,AAAA,cAAc,CAAA;EACV,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;CAQtB;;AAVD,AAGI,cAHU,CAGV,eAAe,CAAA;EACX,KAAK,EAAC,GAAG;EACT,OAAO,EAAC,IAAI;EACZ,MAAM,EAAC,KAAK;EACZ,UAAU,EAAE,MAAM;CAErB;;AAEL,AAAA,eAAe,CAAA;EACX,OAAO,EAAC,gBAAgB;EACxB,aAAa,EAAC,KAAK,CAAC,KAAK,CCdnB,OAAO;CDehB",
+    "sources": [
+        "../scss/bill.scss",
+        "../scss/basic.scss"
+    ],
+    "names": [],
+    "file": "bill.css"
+}
