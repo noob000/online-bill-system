@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official';
-import { YearSortedData } from './index.d';
+import { YearSortedData } from '../index.d';
 
 interface YearlyChartProps {
     data: YearSortedData[];

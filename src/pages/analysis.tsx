@@ -1,34 +1,37 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Select, Collapse } from "antd";
-import PieChart from "./Piechart";
-import MonthlyChart from "./monthlychart";
-import YearlyChart from "./yearlychart";
-import { MainData, YearSortedData } from "./index.d";
-import './style/css/analysis.css';
+import PieChart from "../components/Piechart";
+import MonthlyChart from "../components/monthlychart";
+import YearlyChart from "../components/yearlychart";
+import { MainData, YearSortedData } from "../index.d";
+import '../style/css/analysis.css';
 export default function Analysis(props: any) {
     const [data, setData] = useState<MainData[]>([]);
     const [yearList, setYearList] = useState<number[]>([]);
     const [data_year, setdata_year] = useState<YearSortedData[]>([]);
     const [year, setYear] = useState<number>(2021);
     useEffect(() => {
-        axios({
-            url: "https://qca83o.fn.thelarkcloud.com/getUserData",
-            method: 'post',
-            data: {
-                email: props.email
-            }
-        }).then((res) => {
-            let billData = res.data.data;
-            setData(billData);
+        if (props.email) {
+            axios({
+                url: "https://qca83o.fn.thelarkcloud.com/getUserData",
+                method: 'post',
+                data: {
+                    email: props.email
+                }
+            }).then((res) => {
+                let billData = res.data.data;
+                setData(billData);
 
-        })
+            })
+        }
+
     }, [props])
     useEffect(() => {
         let data_year = [], yearlist = [];
         for (let element of data) {
             let year = new Date(element.dateObject).getFullYear();
-            if (data_year.length == 0) {
+            if (data_year.length === 0) {
                 let item = {
                     year: year,
                     data: [element]
@@ -39,7 +42,7 @@ export default function Analysis(props: any) {
             else {
                 let i = 0, l = yearlist.length, state = true;
                 while (i < l && state) {
-                    if (data_year[i].year == year) {
+                    if (data_year[i].year === year) {
                         let newItem: any = {
                             year: year,
                             data: [...data_year[i].data, ...[element]]
@@ -96,7 +99,7 @@ export default function Analysis(props: any) {
 
 
 
-{/*useEffect(() => {
+/*useEffect(() => {
         let tempData = [], tempDataIncome = [], tempDataExpend = [], incomeCatagorySorted: any = [], expendCatagorySorted: any = [];//用于储存目标年份的相关账单
         let incomeSum = 0, expendSum = 0;//各类总和
         let incomeOption = {}, expendOption = {};
@@ -142,4 +145,4 @@ export default function Analysis(props: any) {
 
 
     }, [yearList])
-    */}
+    */

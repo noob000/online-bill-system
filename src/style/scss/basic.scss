@@ -1,6 +1,17 @@
 $br-color:#DCDCDC;
 $font-hover-color:#3578e5;
 
-html{
+html {
     font-size: 20px;
+}
+
+@media screen and(min-width:300px) and(max-width:400px) {
+    html {
+        font-size: 15px;
+    }
+}
+@media screen and(min-width:200px) and(max-width:300px) {
+    html {
+        font-size: 12px;
+    }
 }

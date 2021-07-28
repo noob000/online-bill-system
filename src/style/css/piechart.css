@@ -2,6 +2,12 @@ html {
   font-size: 20px;
 }
 
+@media screen and (min-width: 300px) and (max-width: 400px) {
+  html {
+    font-size: 15px;
+  }
+}
+
 .pieChartFlexContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10,10 +16,18 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .pieChartFlexContainer .pieChartContainer {
-  width: 35rem;
-  padding: 1rem 0 1rem 0;
+  width: 100%;
+}
+
+.highcharts-container {
+  width: 100%;
 }
 /*# sourceMappingURL=piechart.css.map */

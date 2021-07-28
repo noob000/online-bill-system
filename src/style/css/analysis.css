@@ -2,7 +2,13 @@ html {
   font-size: 20px;
 }
 
+@media screen and (min-width: 300px) and (max-width: 400px) {
+  html {
+    font-size: 15px;
+  }
+}
+
 .chartContainer {
-  width: 60rem;
+  width: 100%;
 }
 /*# sourceMappingURL=analysis.css.map */

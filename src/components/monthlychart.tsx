@@ -10,9 +10,10 @@ export default function MonthlyChart(props: any) {
     const [chartOptions, setChartOptions] = useState<any>({});
 
     useEffect(() => {
-        const data = props.data.filter((element: any) => element.year === props.year)[0].data;
+        const { data, year } = props;
+        const tempData = data.filter((element: any) => element.year === year)[0].data;
         let incomelist = [], expendlist = [];
-        for (let element of data) {
+        for (let element of tempData) {
             if (element.cata === 'income') incomelist.push(element);
             else if (element.cata === 'expend') expendlist.push(element);
         }
@@ -121,12 +122,13 @@ export default function MonthlyChart(props: any) {
         }
     }, [expendData])
     useEffect(() => {
+        const { year } = props;
         const chartOptions: any = {
             chart: {
                 type: 'line'
             },
             title: {
-                text: `${props.year}年度收入支出趋势图`
+                text: `${year}年度收入支出趋势图`
             },
             tooltip: {
                 valueSuffix: '元',
@@ -161,7 +163,7 @@ export default function MonthlyChart(props: any) {
             }
         }
 
-        setChartOptions(chartOptions)
+        setChartOptions(chartOptions)//eslint-disable-next-line react-hooks/exhaustive-deps
     }, [incomeMonthData, expendMonthData])
 
     return (

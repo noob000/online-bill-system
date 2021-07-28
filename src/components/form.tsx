@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { Form, DatePicker, Select, Input, Radio, Button, InputNumber,message } from 'antd';
+import { Form, DatePicker, Select, Input, Radio, Button, InputNumber, message } from 'antd';
 import 'antd/dist/antd.css';
 import moment from "moment";
+const incomeCatagory = ['salary', 'Financing', 'transfer', 'others'];
+const expendCatagory = ['food', 'learning', 'sports', 'digitalProduct', 'transport', 'communication', 'dailylife', 'dress', 'others'];
 export default function FormComponent(props: any) {
     const [fields, setFields] = useState<any>([{
         name: 'cata',
@@ -14,44 +16,51 @@ export default function FormComponent(props: any) {
     const [cata, setCata] = useState('income');
     const [note, setNote] = useState('');
     const handleClick = () => {
-        if(date!=''&&amount!=0){
-            let dateData = {
-                year: date.getFullYear(),
-                month: date.getMonth() + 1,
-                day: date.getDate(),
-                weekday: date.getDay()
+        if (date !== '' && amount !==0) {
+            if ((cata === 'income' && incomeCatagory.indexOf(catagory) !== -1) || (cata === 'expend' && expendCatagory.indexOf(catagory) !== -1)) {
+                let dateData = {
+                    year: date.getFullYear(),
+                    month: date.getMonth() + 1,
+                    day: date.getDate(),
+                    weekday: date.getDay()
+                }
+                const tempDate = `${dateData.year}-${dateData.month}-${dateData.day}`;
+                let result = [{
+                    date: tempDate,
+                    catagory: catagory,
+                    cata: cata,
+                    amount: amount,
+                    note: note,
+                    dateObject: date
+                }];
+                props.clickCallBack(result)
+                setDate('');
+                setCata('income');
+                setAmount(0);
+                setCatagory('')
+                setNote('');
+                formRef.current!.resetFields()
             }
-            const tempDate = `${dateData.year}` + '-' + `${dateData.month}` + '-' + `${dateData.day}`
-            let result = [{
-                date: tempDate,
-                catagory: catagory,
-                cata: cata,
-                amount: amount,
-                note: note,
-                dateObject:date
-            }];
-            props.setData(result);
-            setDate('');
-            setCata('income');
-            setAmount(0);
-            setCatagory('')
-            setNote('');
-            formRef.current!.resetFields()
+            else {
+                message.error('请输入正确格式的信息并填写必要信息！');
+                formRef.current!.resetFields()
+            }
         }
-        else{
+
+        else {
             message.error('请输入正确格式的信息并填写必要信息！');
             formRef.current!.resetFields()
         }
-      
+
     }
 
     useEffect(() => {
         if (props.state === 'modify') {
-            const data=props.modifyData
+            const data = props.modifyData
             setFields([
                 {
                     name: 'note',
-                    value:data.note
+                    value: data.note
                 },
                 {
                     name: 'amount',
@@ -68,11 +77,12 @@ export default function FormComponent(props: any) {
                     value: moment(data.date, 'YYYY/MM/DD')
                 }
             ])
-            setDate(data.dateObject);
+            setDate(new Date(data.dateObject));
             setCata(data.cata);
             setCatagory(data.catagory);
             setAmount(data.amount);
             setNote(data.note);
+
         }
         else if (props.state === 'add') {
             setFields([
@@ -114,13 +124,6 @@ export default function FormComponent(props: any) {
                 rules={[{ required: true, message: '请填写记账日期' }]}>
                 <DatePicker onChange={(event: any) => {
                     if (event) {
-                        let date = event._d;
-                        const result = {
-                            year: date.getFullYear(),
-                            month: date.getMonth() + 1,
-                            day: date.getDate(),
-                            weekday: date.getDay()
-                        }
                         setDate(event._d)
                     }
                 }} />
@@ -154,7 +157,7 @@ export default function FormComponent(props: any) {
             <Form.Item >
                 <Button type='primary'
                     onClick={handleClick}
-                >添加</Button>
+                >{props.buttonValue}</Button>
             </Form.Item>
         </Form>
     )

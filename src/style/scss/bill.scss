@@ -1,16 +1,45 @@
 @import 'basic';
-.billContainer{
+
+.billContainer {
     display: flex;
     flex-direction: row;
-    .list_Container{
-        width:50%;
-        padding:1rem;
-        height:20rem;
+
+    .list_Container {
+        width: 50%;
+        padding: 1rem;
+        height: auto;
+        max-height:30rem;
         overflow-y: scroll;
-        
+
     }
 }
-.radioContainer{
-    padding:1rem 0 1rem 1rem;
-    border-bottom:0.5px solid $br-color ;
+
+.radioContainer {
+    padding: 1rem 0 1rem 1rem;
+    border-bottom: 0.5px solid $br-color;
+}
+
+.mobileBillContainer {
+    padding: 1.5rem 0 1.5rem 1rem;
+}
+
+.billFlexContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .buttonContainer {
+        display: none;
+
+        .delButton {
+            margin-left: 1rem;
+        }
+    }
+
+    &:hover {
+        .buttonContainer {
+            display: block;
+        }
+    }
 }

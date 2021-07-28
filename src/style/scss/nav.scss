@@ -32,10 +32,73 @@
 
         }
     }
+}
 
-    .logoutButton {
-        color: red;
-        cursor: pointer;
-        padding-left:1rem;
+.logoutButton {
+    color: red;
+    cursor: pointer;
+    padding-left: 1rem;
+}
+
+.mobileNavContainer {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 0.5px solid $br-color;
+    width: 100%;
+    text-align: center;
+
+    .drawerButton {
+        float: left;
+        line-height: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .mobTitle {
+        font-size: 1.5rem;
+
+    }
+
+}
+
+.leftNav {
+    ul {
+        list-style: none;
+    }
+}
+
+@media screen and (min-width:900px) {
+    .navContainer {
+        display: block;
+    }
+
+    .mobileNavContainer {
+        display: none;
+    }
+
+    .leftNav {
+        display: none;
+    }
+
+    .isShow {
+        display: none;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .navContainer {
+        display: none;
+    }
+
+    .mobileNavContainer {
+        display: block;
+    }
+
+    .leftNav {
+        display: block;
+    }
+
+    .isShow {
+        display: block;
     }
 }

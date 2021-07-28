@@ -2,6 +2,12 @@ html {
   font-size: 20px;
 }
 
+@media screen and (min-width: 300px) and (max-width: 400px) {
+  html {
+    font-size: 15px;
+  }
+}
+
 .formContainer {
   width: 100%;
   border-bottom: 0.5px solid #DCDCDC;

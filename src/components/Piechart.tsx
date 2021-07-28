@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official';
-import './style/css/piechart.css';
-import { YearSortedData, MainData } from './index.d';
+import '../style/css/piechart.css';
+import { YearSortedData, MainData } from '../index.d';
 const color: any = Highcharts.getOptions().colors;
 const map = new Map([['food', '饮食'], ['learning', '文教娱乐'], ['sports', '运动健康'], ['transport', '交通出行'], ['communication', '通讯物流'], ['dailylife', '生活日用'], ['dress', '服饰美容'], ['others', '其他消费'], ['salary', '工资'], ['Financing', '理财产品'], ['transfer', '他人转账'], ['others', '其他收入'], ['digitalProduct', '数码电器']])
 interface PieChartProps {
@@ -66,7 +66,7 @@ export default function PieChart(props: PieChartProps) {
             let tempData = [], tempSum: number = 0;
             for (let i = 0, l = dataCatagorySorted.length; i < l; i++) {
                 let element = dataCatagorySorted[i];
-                if (i != (l - 1)) {
+                if (i !== (l - 1)) {
                     tempData.push({
                         name: map.get(element.catagory),
                         y: parseFloat(((element.sum / sum) * 100).toFixed(2)),
@@ -108,7 +108,7 @@ export default function PieChart(props: PieChartProps) {
             }
             setIncomeOptions(options)
         }
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
     }, [incomeData])
     useEffect(() => {
         if (expendData.length > 0) {
@@ -148,7 +148,7 @@ export default function PieChart(props: PieChartProps) {
             let tempData = [], tempSum: number = 0;
             for (let i = 0, l = dataCatagorySorted.length; i < l; i++) {
                 let element = dataCatagorySorted[i];
-                if (i != (l - 1)) {
+                if (i !== (l - 1)) {
                     tempData.push({
                         name: map.get(element.catagory),
                         y: parseFloat(((element.sum / sum) * 100).toFixed(2)),
@@ -190,10 +190,10 @@ export default function PieChart(props: PieChartProps) {
             }
             setExpendOptions(options)
         }
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [expendData])
     return (
-        <div>
+        <>
             <div className='pieChartFlexContainer'>
                 <div className='pieChartContainer'>
                     {incomeData.length > 0 ? <HighchartsReact highcharts={Highcharts} options={incomeOptions} /> : <p>数据不够，暂无法生成图表</p>}
@@ -202,6 +202,6 @@ export default function PieChart(props: PieChartProps) {
                     {expendData.length > 0 ? <HighchartsReact highcharts={Highcharts} options={expendOptions} /> : <p>数据不够，暂无法生成图表</p>}
                 </div>
             </div>
-        </div>
+        </>
     )
 }

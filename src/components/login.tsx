@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
-import { Form, Input, Button, Checkbox, message } from 'antd';
+import { Form, Input, Button, Checkbox, message, notification } from 'antd';
 import axios from "axios";
 import 'antd/dist/antd.css';
-import './style/css/login.css';
+import '../style/css/login.css';
 export default function Login(props: any) {
     const [loginState, setLoginState] = useState<string>('login');
     const [loginEmail, setLoginEmail] = useState<string>('');
@@ -31,10 +31,25 @@ export default function Login(props: any) {
             }
         }).then((res) => {
             const text = res.data.text;
-            console.log(text);
+            
             if (text === 'success to login') {
                 props.setLog(loginEmail)
             }
+            else message.error('密码错误')
+        }).then(() => {
+            axios({
+                url: 'https://qca83o.fn.thelarkcloud.com/getBudgetRemind',
+                method: 'post',
+                data: {
+                    email: loginEmail
+                }
+            }).then((res) => {
+                notification.open({
+                    message: '记账提示',
+                    description: res.data.text,
+                    duration: 2,
+                })
+            })
         })
         loginform.current!.resetFields()
     }
