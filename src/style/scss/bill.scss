@@ -43,3 +43,17 @@
         }
     }
 }
+@media screen and (max-width:550px){
+    .billFlexContainer{
+        &:hover{
+            .buttonContainer{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+        }
+    }
+    .delButton {
+        margin-left: 0;
+    }
+}
