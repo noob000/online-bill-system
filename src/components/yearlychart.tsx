@@ -74,7 +74,7 @@ export default function YearlyChart(props: YearlyChartProps) {
     }, [props])
     return (
         <div>
-            <HighchartsReact highcharts={Highcharts} options={chartOptions} />
+            {props.data.length>0?<HighchartsReact highcharts={Highcharts} options={chartOptions} />:<p>数据不够，暂无法生成图表</p>}
         </div>
     )
 }

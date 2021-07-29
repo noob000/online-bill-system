@@ -168,10 +168,10 @@ export default function PieChart(props: PieChartProps) {
             const options =
             {
                 title: {
-                    text: `${props.year}年度支出分类占比`
+                    text: `${props.year}年度支出分类占比`,
                 },
                 tooltip: {
-                    valueSuffix: '%'
+                    valueSuffix: '%',
                 },
                 series: [{
                     name: '支出占比',
@@ -183,7 +183,7 @@ export default function PieChart(props: PieChartProps) {
                         distance: 20,
                         connectorPadding: 20,
                         formatter: function (this: any) {
-                            return `${this.point.name}占比:${this.y}%`
+                            return `${this.point.name}占比:${this.y} %`
                         }
                     }
                 }]

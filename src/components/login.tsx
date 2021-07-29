@@ -33,24 +33,24 @@ export default function Login(props: any) {
             const text = res.data.text;
             
             if (text === 'success to login') {
-                props.setLog(loginEmail)
+                props.setLog(loginEmail);
+                axios({
+                    url: 'https://qca83o.fn.thelarkcloud.com/getBudgetRemind',
+                    method: 'post',
+                    data: {
+                        email: loginEmail
+                    }
+                }).then((res) => {
+                    notification.open({
+                        message: '记账提示',
+                        description: res.data.text,
+                        duration: 2,
+                    })
+                })
             }
             else message.error('密码错误')
-        }).then(() => {
-            axios({
-                url: 'https://qca83o.fn.thelarkcloud.com/getBudgetRemind',
-                method: 'post',
-                data: {
-                    email: loginEmail
-                }
-            }).then((res) => {
-                notification.open({
-                    message: '记账提示',
-                    description: res.data.text,
-                    duration: 2,
-                })
-            })
         })
+           
         loginform.current!.resetFields()
     }
     const registFinish = () => {
@@ -97,6 +97,7 @@ export default function Login(props: any) {
                 label="邮箱"
                 name="username"
                 rules={[{ required: true, type: 'email', message: '请正确填写邮箱格式!' }]}
+                className='formItem'
             >
                 <Input onChange={(event: any) => setLoginEmail(event.target.value)} />
             </Form.Item>
@@ -105,17 +106,14 @@ export default function Login(props: any) {
                 label="密码"
                 name="password"
                 rules={[{ required: true, message: '请填写您的密码!' }]}
+                className='formItem'
             >
                 <Input.Password onChange={(event: any) => setLoginPassword(event.target.value)} />
             </Form.Item>
 
-            <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-                <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                 <Button type="primary" htmlType="submit">
-                    Submit
+                   登录
                 </Button>
             </Form.Item>
         </Form>
@@ -150,7 +148,7 @@ export default function Login(props: any) {
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                 <Button type="primary" htmlType="submit">
-                    Submit
+                    注册
                 </Button>
             </Form.Item>
         </Form>

@@ -122,7 +122,9 @@ export default function FormComponent(props: any) {
                 label='日期'
                 name='date'
                 rules={[{ required: true, message: '请填写记账日期' }]}>
-                <DatePicker onChange={(event: any) => {
+                <DatePicker 
+                placeholder={'请选择日期'}
+                onChange={(event: any) => {
                     if (event) {
                         setDate(event._d)
                     }

@@ -8,9 +8,15 @@ html {
   }
 }
 
+@media screen and (min-width: 200px) and (max-width: 300px) {
+  html {
+    font-size: 12px;
+  }
+}
+
 .loginPart {
   position: relative;
-  top: 5rem;
+  top: 2rem;
   width: 35rem;
   padding: 1rem;
   margin: 0 auto;
@@ -61,7 +67,9 @@ html {
 
 @media only screen and (max-width: 626px) {
   .loginPart {
-    width: 20rem;
+    width: 100%;
+    height: 100%;
+    border: none;
   }
   .loginPart .h2 {
     font-size: 1rem;
@@ -70,11 +78,11 @@ html {
     font-size: 0.8rem;
   }
   .loginPart .loginContainer {
-    width: 15rem;
+    width: 70%;
     margin: 0 auto;
   }
   .loginPart .registContainer {
-    width: 15rem;
+    width: 70%;
     margin: 0 auto;
   }
 }

@@ -10,15 +10,19 @@ export default function MonthlyChart(props: any) {
     const [chartOptions, setChartOptions] = useState<any>({});
 
     useEffect(() => {
-        const { data, year } = props;
-        const tempData = data.filter((element: any) => element.year === year)[0].data;
-        let incomelist = [], expendlist = [];
-        for (let element of tempData) {
-            if (element.cata === 'income') incomelist.push(element);
-            else if (element.cata === 'expend') expendlist.push(element);
+        if (props.data.length > 0) {
+            const { data, year } = props;
+
+            const tempData = data.filter((element: any) => element.year === year)[0].data;
+            let incomelist = [], expendlist = [];
+            for (let element of tempData) {
+                if (element.cata === 'income') incomelist.push(element);
+                else if (element.cata === 'expend') expendlist.push(element);
+            }
+            setIncomeData(incomelist);
+            setExpendData(expendlist);
         }
-        setIncomeData(incomelist);
-        setExpendData(expendlist);
+
     }, [props])
     useEffect(() => {
         if (incomeData.length > 0) {
@@ -168,7 +172,7 @@ export default function MonthlyChart(props: any) {
 
     return (
         <div>
-            <HighchartsReact highcharts={Highcharts} options={chartOptions} />
+           {props.data.length>0 ?<HighchartsReact highcharts={Highcharts} options={chartOptions} />:<p>数据不够，暂无法生成图表</p>}
         </div>
     )
 }
